@@ -2,6 +2,7 @@
   "name": "functions",
   "description": "Vonage SMS on Firebase Cloud Functions",
   "author": "Kelly J Andrews (kelly.andrews@vonage.com)",
+  "contributor": "Amanda Cavallaro (amanda.cavallaro@vonage.com)",
   "license": "MIT",
   "scripts": {
     "lint": "eslint .",
