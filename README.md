@@ -41,7 +41,7 @@ overview
     1. This will buy an available US phone number
     1. For more information on SMS Countries and Features - visit https://help.nexmo.com/hc/en-us/articles/115011451687-SMS-Numbers-Features-Overview
 1. Link the function route to the number `vonage link:sms 15555555555 https://[LOCATION]-[YOUR-PROJECT-ID].cloudfunctions.net/inboundSMS`
-1. Add your Vonage keys to the Firebase environment variables `firebase functions:config:set vonage.apiKey="Your Key" vonage.apiSecret="Your Secret"`
+1. Add your Vonage keys to the Firebase environment variables `firebase functions:config:set vonage.api_key="Your Key" vonage.api_secret="Your Secret"`
 
 ### Try It Out
 Text anything you want to the purchased number, and it will echo back what you sent in.
