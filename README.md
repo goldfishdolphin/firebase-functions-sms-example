@@ -6,11 +6,10 @@ This example sends and receives Vonage SMS with Cloud Functions for Firebase. In
 
 If you're new to Vonage, you can [sign up for a Vonage account](https://dashboard.nexmo.com/sign-up?utm_source=DEV_REL&utm_medium=github&utm_campaign=firebase-functions-sms-example) and get some free credit to get you started.
 
-## Project Prerequsites
+## Project Prerequisites
 + [Google Cloud account](https://cloud.google.com/)
 + [Vonage account](https://dashboard.nexmo.com/sign-up?utm_source=DEV_REL&utm_medium=github&utm_campaign=firebase-functions-sms-example)
 + SMS enabled phone
-
 
 ## Install Example
 
@@ -19,29 +18,32 @@ If you're new to Vonage, you can [sign up for a Vonage account](https://dashboar
 ### Setup Firebase
 
 1. Setup [Firebase Tools](https://firebase.google.com/docs/cli)
-1. Run `firebase init functions`
-    1. Create a new project
-    1. Select JavaScript
-    1. Add ESLint
-    1. Do not overwrite any files
-    1. Install all dependencies
-1. Open Firebase console https://console.firebase.google.com/project/YOUR-PROJECT-ID/
+    1. Run `firebase init functions`
+    2. Create a new project
+    3. Select JavaScript
+    4. Add ESLint (optional)
+    5. Do not overwrite any files
+    6. Install all dependencies
+2. Open Firebase console https://console.firebase.google.com/project/YOUR-PROJECT-ID/
 overview
-    1. Go to ⚙️ -> Project Settings
+. Go to ⚙️ -> Project Settings
     1. Update `Google Cloud Platform (GCP) resource location` to something near your location
     1. Go to ⚙️ -> Usage and Billing -> Details & Settings
     1. Update the plan to `Blaze - Pay As You Go`
-1. Run `firebase deploy --only functions`
+3. Run `firebase deploy --only functions`
     1. Copy the function route - `https://[LOCATION]-[YOUR-PROJECT-ID].cloudfunctions.net/inboundSMS`
 
 ### Setup Vonage
 
 1. Setup the [Vonage CLI](https://github.com/Vonage/vonage-cli)
-1. Purchase a new phone number using `vonage number:buy --country_code US`
-    1. This will buy an available US phone number
-    1. For more information on SMS Countries and Features - visit https://help.nexmo.com/hc/en-us/articles/115011451687-SMS-Numbers-Features-Overview
-1. Link the function route to the number `vonage link:sms 15555555555 https://[LOCATION]-[YOUR-PROJECT-ID].cloudfunctions.net/inboundSMS`
-1. Add your Vonage keys to the Firebase environment variables `firebase functions:config:set vonage.api_key="Your Key" vonage.api_secret="Your Secret"`
+2. Create a new application `vonage apps:create`
+3. Purchase a new phone number using. The example below will buy an available US phone number. For more information on SMS Countries and Features - visit the [API Support Help Center](https://help.nexmo.com/hc/en-us/articles/115011451687-SMS-Numbers-Features-Overview)
+    `vonage numbers:search US`
+    `vonage numbers:buy [NUMBER] --country_code US`
+4. Link the number (for instance 15555555555) to the application `vonage apps:link [APPID] --number=[NUMBER]`
+5. Add the function to the inbound SMS in the Vonage dashboard `https://[LOCATION]-[YOU
+R-PROJECT-ID].cloudfunctions.net/inboundSMS`
+6. Add your Vonage keys to the Firebase environment variables `firebase functions:config:set vonage.api_key="Your Key" vonage.api_secret="Your Secret"`
 
 ### Try It Out
 Text anything you want to the purchased number, and it will echo back what you sent in.
@@ -64,7 +66,7 @@ We love to hear from you so if you have questions, comments or find a bug in the
 
 ## Further Reading
 
-* Check out the Developer Documentation at <https://developer.vonage.com>
-* Details about Vonage SMS Functionality https://developer.vonage.com/messaging/sms/overview
-* Getting started with Cloud Functions for Firebase https://firebase.google.com/docs/functions/get-started
+* Check out the [Developer Documentation](https://developer.vonage.com)
+* Details about [Vonage SMS Functionality](https://developer.vonage.com/messaging/sms/overview)
+* Getting started with [Cloud Functions for Firebase](https://firebase.google.com/docs/functions/get-started)
 
